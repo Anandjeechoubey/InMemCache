@@ -4,7 +4,7 @@ InMemCache is a Python library for in-memory caching with support for multiple e
 
 ## Installation
 
-pip install InMemCache
+pip install -i https://test.pypi.org/simple/ InMemCache
 
 ## Usage
 
