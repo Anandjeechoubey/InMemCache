@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='InMemCache',
-    version='0.1.0',
+    version='0.1.2',
     description='A Python library for in-memory caching with multiple eviction policies',
     author='Anand Jee Choubey',
     author_email='anandjechoubey@gmail.com',

@@ -1,29 +1,18 @@
-[build-system]
-requires = ["setuptools>=42", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "InMemCache"
-version = "0.1.0"
+version = "0.1.2"
+authors = [
+  { name="Anand Jee Choubey", email="anandjechoubey@gmail.com" },
+]
 description = "A Python library for in-memory caching with multiple eviction policies"
 readme = "README.md"
-license = {text = "MIT"}
-authors = [
-    {name = "Anand Jee Choubey", email = "anandjechoubey@gmail.com"}
-]
-homepage = "https://github.com/Anandjeechoubey/InMemCache"
-repository = "https://github.com/Anandjeechoubey/InMemCache"
-keywords = ["cache", "in-memory", "LRU", "LFU", "FIFO", "LIFO"]
+requires-python = ">=3.6"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-dependencies = []
-requires-python = ">=3.6"
 
-[tool.setuptools]
-packages = ["cache"]
-
-[tool.setuptools.package-data]
-cache = ["__init__.py", "cache.py"]
+[project.urls]
+Homepage = "https://github.com/Anandjeechoubey/InMemCache"
+Issues = "https://github.com/Anandjeechoubey/InMemCache/issues"
