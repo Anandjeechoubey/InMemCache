@@ -1,22 +1,35 @@
 # Example Usage - LRU
-from cache import InMemCache
+from cache.cache import InMemCache
+from cache.memory.standard import FIFO, LIFO, LRU
 
 def main():
 
-    eviction_policies = ['LRU', 'FIFO', 'LIFO', 'LFU']
+    print("Example of FIFO eviction in mem cache")
+    cache = InMemCache(memory = FIFO(), max_size = 3)
 
-    for policy in eviction_policies:
-        print(f"Example of: {policy} policy -- ")
-        cache = InMemCache(max_size=3, eviction_policy=policy)
-        cache.set("key1", "value1")
-        cache.set("key2", "value2")
-        cache.set("key3", "value3")
+    for i in range(5):
+        cache.__setitem__(f"key{i}",f"value{i}")
 
-        print(cache.get("key1"))  # Output: value1
-        cache.set("key4", "value4")  # This will evict the least recently used item (key2 if LRU policy is chosen)
-        print(cache.get("key2"))  # Output: None (evicted if LRU policy is chosen)
-        cache.set("key5", "value5")  # Eviction happens based on the chosen policy
-        print(cache.get("key3"))  # Output depends on eviction policy
+    for i in range(5):
+        print(cache.__getitem__(f"key{i}"))
+
+    print("Example of LIFO eviction in mem cache")
+    cache = InMemCache(memory = LIFO(), max_size = 3)
+
+    for i in range(5):
+        cache.__setitem__(f"key{i}",f"value{i}")
+
+    for i in range(5):
+        print(cache.__getitem__(f"key{i}"))
+
+    print("Example of LRU eviction in mem cache")
+    cache = InMemCache(memory = LRU(), max_size = 3)
+
+    for i in range(5):
+        cache.__setitem__(f"key{i}",f"value{i}")
+
+    for i in range(5):
+        print(cache.__getitem__(f"key{i}"))
 
 
 if __name__ == "__main__":

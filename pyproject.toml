@@ -1,10 +1,10 @@
 [project]
 name = "InMemCache"
-version = "0.1.2"
+version = "1.0.1"
 authors = [
   { name="Anand Jee Choubey", email="anandjechoubey@gmail.com" },
 ]
-description = "A Python library for in-memory caching with multiple eviction policies"
+description = "A thread safe Python library for in-memory caching with multiple eviction policies"
 readme = "README.md"
 requires-python = ">=3.6"
 classifiers = [

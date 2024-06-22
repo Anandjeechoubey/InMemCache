@@ -1,22 +1,46 @@
 # InMemCache
 
-InMemCache is a Python library for in-memory caching with support for multiple eviction policies such as LRU, FIFO, LIFO, and LFU.
+InMemCache is a thread safe Python library for in-memory caching with support for multiple eviction policies such as LRU, FIFO, LIFO, and LFU.
 
 ## Installation
 
 pip install -i https://test.pypi.org/simple/ InMemCache
 
-## Usage
+### Run Unit Tests
+
+```
+make test
+```
+
+### Use the library
+
+To use the cache functionality,
 
 ```python
-from cache import InMemCache
+from cache.cache import InMemCache
 
-cache = InMemCache(max_size=3, eviction_policy='LRU')
-cache.set("key1", "value1")
-cache.set("key2", "value2")
-cache.set("key3", "value3")
+# the default eviction policy is LRU
+cache = InMemCache()
+```
 
-print(cache.get("key1"))  # Output: value1
-cache.set("key4", "value4")  # This will evict the least recently used item
-print(cache.get("key2"))  # Output: None (evicted)
+To use standard eviction policies
+
+```python
+from cache.cache import InMemCache
+from cache.memory.standard import FIFO, LIFO
+
+cache = InMemCache(memory = FIFO(), capacity = 100)
+```
+
+To define custom eviction policies
+
+```python
+from cache.cache import InMemCache
+from cache.memory.memory import Memory
+
+class CustomMemory(Memory):
+    # implement all the required methods here
+    pass
+
+cache = InMemCache(memory = CustomMemory(), capacity = 100)
 ```
